@@ -11,6 +11,10 @@ namespace Bank_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string user = Session["logged_user"] as string;
+             if(user == null)
+                Response.Redirect("admin-login.aspx");
+
 
         }
     }

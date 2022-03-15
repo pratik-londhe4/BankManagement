@@ -1,15 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin-dash.aspx.cs" Inherits="Bank_Management_System.admin_dash" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="new-transaction.aspx.cs" Inherits="Bank_Management_System.NewTransaction" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/user-dashboard.css">
-    <title> Admin Dashboard</title>
+    <title> New Transaction</title>
     <style>
         @media print{
             body *{
@@ -30,7 +32,9 @@
     </style>
 </head>
 <body>
-    <form id="form" runat="server">
+    <form id="form1" runat="server">
+
+         
         <section>
     <nav class="navbar bg-dark text-light">
         <ul class="navbar-nav">
@@ -63,7 +67,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="admin-dash.aspx" class="nav-link">
+            <a href="user-dash.aspx" class="nav-link">
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                 <g class="fa-group">
                     <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"class="text-light">
@@ -75,14 +79,14 @@
           </li>
     
           <li class="nav-item">
-            <a href="admin-addUser.aspx" class="nav-link">
+            <a href="new-transaction.aspx" class="nav-link">
               <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="plus-square" class="svg-inline--fa fa-plus-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <g class="fa-group">
                     <path fill="currentColor" d="M352 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm96-160v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class="text-light">
                     </path>
                 </g>
             </svg>
-              <span class="link-text">Add User</span>
+              <span class="link-text">New Transation</span>
             </a>
           </li>
     
@@ -114,11 +118,76 @@
         </ul>
       </nav>
 </section>
+
+
+
+        <main class="p-5">
+         <section class="p-3 mb-5 container shadow   rounded bg-dark text-light">
+          <div>
+             <h2>Welcome <asp:Label runat="server" ID="lbl_user_name"></asp:Label></h2></div>
+
+
+        </section>
+          
+      
+        <section class="p-3 mb-5 container shadow  rounded bg-body">
+              <div class="complaint-conatiner">
+        <h2>Send Money</h2>
+        <div class="complaint-card">
+            <div class="complaint-card-img"></div>
+            <div class="complaint-card-form">
+             
+              
+                <div class="row g-5">
+                    <div class="col-sm">
+            <asp:TextBox placeholder="Account Number" runat="server" type="password" ID="acnum"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" runat="server" ControlToValidate="acnum" Display="Dynamic" ErrorMessage="Account Number is required"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"    
+                    ErrorMessage="Account Number length must 10  characters"
+                    ControlToValidate="acnum"
+                    ValidationExpression="^[0-9]{10,10}$" />    
+                        <br />
+                        <br />
+                    </div>
+
+
+                    <div class="col-sm">
+            <asp:TextBox placeholder="Account Number" runat="server"  ID="confacnum"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" runat="server" ControlToValidate="confacnum" Display="Dynamic" ErrorMessage="Account Number is required"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"    
+                    ErrorMessage="Account Number length must 10  characters"
+                    ControlToValidate="confacnum"
+                    ValidationExpression="^[0-9]{10,10}$" />    
+                        <br />
+                        <br />
+                    </div>
+
+
+                   
+
+                    <div class="col-sm">
+            <asp:TextBox runat="server" placeholder="Amount" ID="amount"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ForeColor="Red" runat="server" ControlToValidate="amount" Display="Dynamic" ErrorMessage="Insert Amount"></asp:RequiredFieldValidator>
+
+                                         
+                    </div>
+                   
+                  
+                    </div>
+            <asp:Button Text="Send Money" CssClass="btn btn-info input-group" ID="send_money" runat="server" onclick="send_money_Click" ></asp:Button>
+            </div>
+        
+    </div>
+
+          </div>
+        </section>
+          
+         
+    </main>
         
        
-        </form>
-        </body>
-    </html>
-           
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  
+     
+    </form>
+</body>
+</html>

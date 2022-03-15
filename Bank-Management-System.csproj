@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="about-us.aspx" />
+    <Content Include="admin-addUser.aspx" />
     <Content Include="admin-dash.aspx" />
     <Content Include="admin-login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -152,6 +153,8 @@
     <Content Include="index.aspx" />
     <Content Include="favicon_io\site.webmanifest" />
     <Content Include="README.md" />
+    <Content Include="user-dash.aspx" />
+    <Content Include="new-transaction.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="login-type.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -196,6 +199,13 @@
     </Compile>
     <Compile Include="about-us.aspx.designer.cs">
       <DependentUpon>about-us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-addUser.aspx.cs">
+      <DependentUpon>admin-addUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-addUser.aspx.designer.cs">
+      <DependentUpon>admin-addUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin-dash.aspx.cs">
       <DependentUpon>admin-dash.aspx</DependentUpon>
@@ -258,6 +268,20 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user-dash.aspx.cs">
+      <DependentUpon>user-dash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user-dash.aspx.designer.cs">
+      <DependentUpon>user-dash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="new-transaction.aspx.cs">
+      <DependentUpon>new-transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="new-transaction.aspx.designer.cs">
+      <DependentUpon>new-transaction.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

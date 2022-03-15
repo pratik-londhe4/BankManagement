@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin-dash.aspx.cs" Inherits="Bank_Management_System.admin_dash" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin-addUser.aspx.cs" Inherits="Bank_Management_System.admin_addUseraspx" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/user-dashboard.css">
-    <title> Admin Dashboard</title>
+    <title> Admin dd User</title>
     <style>
         @media print{
             body *{
@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-    <form id="form" runat="server">
+     <form id="form1" runat="server">
         <section>
     <nav class="navbar bg-dark text-light">
         <ul class="navbar-nav">
@@ -75,7 +75,7 @@
           </li>
     
           <li class="nav-item">
-            <a href="admin-addUser.aspx" class="nav-link">
+            <a href="#" class="nav-link">
               <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="plus-square" class="svg-inline--fa fa-plus-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <g class="fa-group">
                     <path fill="currentColor" d="M352 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm96-160v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class="text-light">
@@ -114,11 +114,111 @@
         </ul>
       </nav>
 </section>
+
+
+
+        <main class="p-5">
+         <section class="p-3 mb-5 container shadow   rounded bg-dark text-light">
+          <div>
+             <h2>Welcome <asp:Label runat="server" ID="lbl_user_name"></asp:Label></h2></div>
+
+
+        </section>
+          
+      
+        <section class="p-3 mb-5 container shadow  rounded bg-body">
+              <div class="complaint-conatiner">
+        <h2>Add User</h2>
+        <div class="complaint-card">
+            <div class="complaint-card-img"></div>
+            <div class="complaint-card-form">
+                <div class="row g-5">
+                    <div class="col-sm">
+            <asp:TextBox placeholder="User Name" CssClass="input-group" runat="server" ID="name" ></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="name" Display="Dynamic" ErrorMessage="Name is required" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                        </div>
+
+                     <div class="col-sm">
+            <asp:TextBox placeholder="Addhar Card Nunmber" CssClass="input-group" runat="server" ID="addnum" ></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="addnum" Display="Dynamic" ErrorMessage="Addhar Card Number  is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegExp1" runat="server"    
+                        ErrorMessage="Enter valid addhar card number"
+                        ControlToValidate="addnum"
+                        ValidationExpression="^[0-9]{16,16}$" />
+                        </div>
+
+                   <div class="col-sm">
+       <asp:DropDownList ID="actype" runat="server" > 
+           
+            <asp:ListItem Value="">Account Type</asp:ListItem>  
+            <asp:ListItem Value="1">Current  </asp:ListItem>  
+            <asp:ListItem Value="2">Savings</asp:ListItem>  
+            
+
+        </asp:DropDownList>  
+                       
+           <asp:RequiredFieldValidator ID="rfvDDL" runat="server"
+                            ControlToValidate="actype" 
+                            Display="Dynamic"
+                            ErrorMessage="Select account type."
+                           
+                            ForeColor="Red"
+                             >
+</asp:RequiredFieldValidator>
+            <br/><br /></div>
+                    </div>
+                <div class="row g-5">
+                   
+            <div  class="col-sm">
+            <asp:TextBox placeholder="Address" runat="server" CssClass="input-group" TextMode="MultiLine" ID="address"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" runat="server" ControlToValidate="address" Display="Dynamic" ErrorMessage="Address is Required"></asp:RequiredFieldValidator>
+            </div>
+                    </div>
+                <br /><br /> 
+                <div class="row g-5">
+                    <div class="col-sm">
+            <asp:TextBox placeholder="User Password" runat="server" type="password" ID="txtPassword"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="Password is required"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"    
+                    ErrorMessage="Password length must be between 8 to 20 characters"
+                    ControlToValidate="txtPassword"
+                    ValidationExpression="^[a-zA-Z0-9'@&#.\s]{8,20}$" />    
+                        <br />
+                        <br />
+                    </div>
+
+
+                    <div class="col-sm">
+            <asp:TextBox placeholder="Confirm User Password" runat="server" type="password" ID="conftxtPassword"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ForeColor="Red" runat="server" ControlToValidate="conftxtPassword" Display="Dynamic" ErrorMessage=" Confirm Password is required"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server"    
+                    ErrorMessage="Password length must be between 8 to 20 characters"
+                    ControlToValidate="conftxtPassword"
+                    ValidationExpression="^[a-zA-Z0-9'@&#.\s]{8,20}$" />    
+                    </div>
+
+                    <div class="col-sm">
+            <asp:TextBox placeholder="Starting  Balance" runat="server" ID="balance"></asp:TextBox>
+                                         
+                    </div>
+                   
+                  
+                    </div>
+            <asp:Button Text="Add User" CssClass="btn btn-info input-group" runat="server"  ></asp:Button>
+            </div>
+        
+    </div>
+
+          </div>
+        </section>
+          
+         
+    </main>
         
        
-        </form>
-        </body>
-    </html>
-           
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  
+     
+    </form>
+</body>
+</html>

@@ -7,16 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace Bank_Management_System
 {
-    public partial class user_login : System.Web.UI.Page
+    public partial class WebForm2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void blogin_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("user-dash.aspx");
 
         }
     }

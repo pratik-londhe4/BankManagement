@@ -1,18 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="user-dash.aspx.cs" Inherits="Bank_Management_System.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="view-tran.aspx.cs" Inherits="Bank_Management_System.view_tran" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-</head>
-<body>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/user-dashboard.css">
-    <title> User Dashboard</title>
+    <title> View Transactions</title>
     <style>
         @media print{
             body *{
@@ -34,8 +31,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-    
         <section>
     <nav class="navbar bg-dark text-light">
         <ul class="navbar-nav">
@@ -119,19 +114,14 @@
         </ul>
       </nav>
 </section>
-        
-       <main class="p-5">
+          <main class="p-5">
          <section class="p-3 mb-5 container shadow   rounded bg-dark text-light">
 
           <div>
-             <h2>Welcome</h2></div>
+             <h2>Welcome </h2></div>
              </section>
                <section class="p-3 mb-5 container shadow  rounded bg-body">
               <div class="bank-conatiner">
-                  <h2>Name:-<asp:Label runat="server" ID="name"></asp:Label></h2>              
-                  <h2>Account Number:- <asp:Label runat="server" ID="accnum"></asp:Label></h2> 
-                  <h2>Balance:- <asp:Label runat="server" ID="balance"></asp:Label></h2>
-              </div>
         </section>
        </main>
         </form>
@@ -140,3 +130,6 @@
            
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+   
+    

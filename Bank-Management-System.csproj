@@ -108,6 +108,7 @@
     <Content Include=".gitignore" />
     <Content Include="about-us.aspx" />
     <Content Include="admin-addUser.aspx" />
+    <Content Include="admin-alluser.aspx" />
     <Content Include="admin-dash.aspx" />
     <Content Include="admin-login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -187,6 +188,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="user-login.aspx" />
+    <Content Include="view-tran.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -206,6 +208,13 @@
     </Compile>
     <Compile Include="admin-addUser.aspx.designer.cs">
       <DependentUpon>admin-addUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-alluser.aspx.cs">
+      <DependentUpon>admin-alluser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-alluser.aspx.designer.cs">
+      <DependentUpon>admin-alluser.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin-dash.aspx.cs">
       <DependentUpon>admin-dash.aspx</DependentUpon>
@@ -254,6 +263,13 @@
     </Compile>
     <Compile Include="user-login.aspx.designer.cs">
       <DependentUpon>user-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view-tran.aspx.cs">
+      <DependentUpon>view-tran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view-tran.aspx.designer.cs">
+      <DependentUpon>view-tran.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

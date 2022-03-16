@@ -131,11 +131,11 @@
           
       
         <section class="p-3 mb-5 container shadow  rounded bg-body">
-              <div class="complaint-conatiner">
+              <div class="bank-conatiner">
         <h2>Send Money</h2>
-        <div class="complaint-card">
-            <div class="complaint-card-img"></div>
-            <div class="complaint-card-form">
+        <div class="bank-card">
+            <div class="bank-card-img"></div>
+            <div class="bank-card-form">
              
               
                 <div class="row g-5">

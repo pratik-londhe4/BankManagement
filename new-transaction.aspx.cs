@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -37,7 +38,7 @@ namespace Bank_Management_System
                     }
 
                 }
-                double send_amount = Convert.ToDouble(amount.ToString());
+                double send_amount = Convert.ToDouble(amount.Text);
 
                 if(float.Parse(user_bal) < send_amount){
                     errmsg.Text = "<p>You have insufficient balance</p>";
@@ -45,6 +46,22 @@ namespace Bank_Management_System
                 }
                 else
                 {
+                    SqlCommand add = new SqlCommand("new_transaction", sqlconn);
+                    add.CommandType = CommandType.StoredProcedure;
+                    add.Parameters.AddWithValue("@amount", amount.Text);
+                    add.Parameters.AddWithValue("@debited_from",  Session["acc"]);
+                    add.Parameters.AddWithValue("@timestamp", DateTime.Now);
+
+                    add.Parameters.AddWithValue("@credited_to", acnum.Text);
+
+
+
+
+
+                    add.ExecuteNonQuery();
+                   // clr();
+                 //   errormsg.Visible = false;
+                  //  successmsg.Text = "Success";
 
                 }
             }

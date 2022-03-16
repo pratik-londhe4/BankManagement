@@ -145,7 +145,10 @@
 </Columns>
 </asp:GridView>
 <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bank-mgmtConnectionString %>'
-    SelectCommand="SELECT [account_number], [name], [address], [balance] FROM [user_table]">
+    SelectCommand="SELECT [account_number], [name], [address], [balance] FROM [user_table]"
+    UpdateCommand="UPDATE user_table SET Name = @Name, address = @address , balance = @balance WHERE account_number = @account_number">
+   
+
 
 </asp:SqlDataSource>
 </div>

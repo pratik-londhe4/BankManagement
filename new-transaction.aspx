@@ -175,7 +175,8 @@
                   
                     </div>
             <asp:Button Text="Send Money" CssClass="btn btn-info input-group" ID="send_money" runat="server" onclick="send_money_Click" ></asp:Button>
-            </div>
+          <asp:Label ID="errmsg" runat="server" ForeColor="Red"></asp:Label>
+                </div>
         
     </div>
 

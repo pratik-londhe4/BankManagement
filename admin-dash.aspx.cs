@@ -11,11 +11,15 @@ namespace Bank_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string user = Session["logged_user"] as string;
-            
-                
+            var httpCookie = Request.Cookies["panelIdCookie"];
+            if (httpCookie == null)
 
+                Response.Redirect("admin-login.aspx");
+            }
 
-        }
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Response.Cookies.Remove("panelIdCookie");
+            }
     }
-}
+    }

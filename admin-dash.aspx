@@ -106,7 +106,7 @@
                     </path>
                 </g>
             </svg>
-              <span class="link-text">Logout</span>
+              <asp:Button runat="server" Text="Logout" class="link-text" ID="logout" OnClick="logout_Click"></asp:Button>
             </a>
           </li>
     

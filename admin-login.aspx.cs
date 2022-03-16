@@ -55,6 +55,10 @@ namespace Bank_Management_System
 
                     string current_user = username.Text;
                     Session["logged_user"] = current_user;
+                    var user_cookie = new HttpCookie("panelIdCookie");
+                    user_cookie.Values.Add("user_id", id);
+                    user_cookie.Expires = DateTime.Now.AddMonths(2);
+                    Response.Cookies.Add(user_cookie);
 
                     Response.Redirect("admin-dash.aspx");
 

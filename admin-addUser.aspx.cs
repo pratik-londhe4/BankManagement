@@ -42,7 +42,7 @@ namespace Bank_Management_System
 
                 }
 
-                if (cEmail == addnum.Text)
+                if (cEmail == addnum.Text.Trim())
                 {
                     errormsg.Text = "<p>User Already Regustered";
                     return;
@@ -62,18 +62,17 @@ namespace Bank_Management_System
                     add.Parameters.AddWithValue("@aadhar_card", addnum.Text.Trim());
                     add.Parameters.AddWithValue("@balance", balance.Text.Trim());
                     add.Parameters.AddWithValue("@account_type",  actype.SelectedValue);
-                    add.Parameters.AddWithValue("@password", EncryptedPass.ToString());
-                    add.Parameters.AddWithValue("@address", address.Text.Trim());
+                    add.Parameters.AddWithValue("@password", txtPassword.Text);
+                    add.Parameters.AddWithValue("@address", address.Text);
                     add.Parameters.AddWithValue("@account_number", 12345678);
-
-
+                   
 
 
 
                     add.ExecuteNonQuery();
                    // clr();
-                    errormsg.Visible = true;
-                    errormsg.Text = "Success";
+                   // errormsg.Visible = true;
+//errormsg.Text = "Success";
 
                 }
 

@@ -190,12 +190,9 @@
 
 
                     <div class="col-sm">
-            <asp:TextBox placeholder="Confirm User Password" runat="server" type="password" ID="conftxtPassword"></asp:TextBox>
+            <asp:TextBox placeholder="Confirm User Password" runat="server"  TextMode="password" ID="conftxtPassword"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ForeColor="Red" runat="server" ControlToValidate="conftxtPassword" Display="Dynamic" ErrorMessage=" Confirm Password is required"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server"    
-                    ErrorMessage="Password length must be between 8 to 20 characters"
-                    ControlToValidate="conftxtPassword"
-                    ValidationExpression="^[a-zA-Z0-9'@&#.\s]{8,20}$" />    
+                               
                     </div>
 
                     <div class="col-sm">

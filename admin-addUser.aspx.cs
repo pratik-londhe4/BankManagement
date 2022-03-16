@@ -13,5 +13,10 @@ namespace Bank_Management_System
         {
 
         }
+
+        protected void btn_add_user_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

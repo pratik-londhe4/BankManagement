@@ -205,7 +205,7 @@
                    
                   
                     </div>
-            <asp:Button Text="Add User" CssClass="btn btn-info input-group" runat="server"  ></asp:Button>
+            <asp:Button Text="Add User" CssClass="btn btn-info input-group" runat="server" ID="btn_add_user" OnClick="btn_add_user_Click" ></asp:Button>
             </div>
         
     </div>

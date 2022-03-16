@@ -122,6 +122,20 @@
              </section>
                <section class="p-3 mb-5 container shadow  rounded bg-body">
               <div class="bank-conatiner">
+                  <asp:GridView ID="gridview1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+
+                  <Columns>
+<asp:BoundField DataField="timestamp" HeaderText="timestamp" SortExpression="timestamp"></asp:BoundField>
+<asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount"></asp:BoundField>
+<asp:BoundField DataField="debited_from" HeaderText="debited_from" SortExpression="debited_from"></asp:BoundField>
+<asp:BoundField DataField="credited_to" HeaderText="credited_to" SortExpression="credited_to"></asp:BoundField>
+</Columns>
+</asp:GridView>
+              <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bank-mgmtConnectionString %>' SelectCommand="SELECT [timestamp], [amount], [debited_from], [credited_to] FROM [transactions] WHERE ([debited_from] = @debited_from)"><SelectParameters>
+<asp:SessionParameter SessionField="acc" Name="debited_from" Type="Decimal"></asp:SessionParameter>
+</SelectParameters>
+</asp:SqlDataSource>
+</div>
         </section>
        </main>
         </form>

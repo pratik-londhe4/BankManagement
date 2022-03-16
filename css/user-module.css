@@ -86,19 +86,19 @@ h2{
 .side-bar-btn a{
     text-decoration: none;
 }
-.complaint-conatiner{
+.bank-conatiner{
     width: 84%;
     margin-left: 15%;
     float: left;
     background-color:#F3F1F5;
 }
-.complaint-card{
+.bank-card{
     width: 90%;
     background-color:aqua;
     height: 600px;
     margin: 30px auto;
 }
-.complaint-card-img{
+.bank-card-img{
     background-color: aquamarine;
     width: 50%;
     height: 100%;
@@ -108,7 +108,7 @@ h2{
     float: left;
 
 }
-.complaint-card-form{
+.bank-card-form{
     background-color:cyan;
     width: 50%;
     height: 100%;

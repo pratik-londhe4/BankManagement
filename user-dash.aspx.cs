@@ -11,6 +11,9 @@ namespace Bank_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            name.Text = Session["name"].ToString();
+            balance.Text = Session["balance"].ToString();
+            accnum.Text = Session["acc"].ToString();
 
         }
     }

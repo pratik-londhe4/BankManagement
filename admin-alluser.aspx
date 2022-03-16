@@ -124,6 +124,31 @@
              </section>
                <section class="p-3 mb-5 container shadow  rounded bg-body">
               <div class="bank-conatiner">
+                  <asp:GridView runat="server"  DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="account_number"><Columns>
+<asp:BoundField DataField="account_number" ReadOnly="true" HeaderText="account_number" SortExpression="account_number" InsertVisible="False"></asp:BoundField>
+<asp:BoundField DataField="name" HeaderText="name" SortExpression="name"></asp:BoundField>
+<asp:BoundField DataField="address" HeaderText="address" SortExpression="address"></asp:BoundField>
+<asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance"></asp:BoundField>
+
+                          <asp:CommandField ButtonType="Image" 
+                              HeaderText="Action"
+                          EditImageUrl="~/img/edit(1).png"  
+                          ControlStyle-Height="20px" 
+                          ControlStyle-Width="20px" 
+                          ShowEditButton="true" UpdateImageUrl="~/img/floppy-disk.png" ShowCancelButton="true" CancelImageUrl="~/img/cancel.png"
+                             
+                           
+                           
+                          
+                          
+                          />
+</Columns>
+</asp:GridView>
+<asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bank-mgmtConnectionString %>'
+    SelectCommand="SELECT [account_number], [name], [address], [balance] FROM [user_table]">
+
+</asp:SqlDataSource>
+</div>
         </section>
        </main>
         </form>

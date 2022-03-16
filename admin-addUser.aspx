@@ -145,7 +145,7 @@
                         <asp:RegularExpressionValidator ID="RegExp1" runat="server"    
                         ErrorMessage="Enter valid addhar card number"
                         ControlToValidate="addnum"
-                        ValidationExpression="^[0-9]{16,16}$" />
+                        ValidationExpression="^[0-9]{12,12}$" />
                         </div>
 
                    <div class="col-sm">

@@ -27,7 +27,7 @@ namespace Bank_Management_System
 
             using (SqlConnection sqlconn = new SqlConnection(con))
             {
-                SqlCommand check = new SqlCommand("select id from dbo.user_table where aadhar_card = @aadhar", sqlconn);
+                SqlCommand check = new SqlCommand("select aadhar_card from dbo.user_table where aadhar_card = @aadhar", sqlconn);
                 check.Parameters.AddWithValue("@aadhar", addnum.Text.Trim());
                 sqlconn.Open();
                 using (SqlDataReader oReader = check.ExecuteReader())
@@ -35,7 +35,7 @@ namespace Bank_Management_System
                     while (oReader.Read())
                     {
 
-                        cEmail = oReader["id"].ToString();
+                        cEmail = oReader["aadhar_card"].ToString();
 
 
                     }
@@ -44,7 +44,7 @@ namespace Bank_Management_System
 
                 if (cEmail == addnum.Text.Trim())
                 {
-                    errormsg.Text = "<p>User Already Regustered";
+                    errormsg.Text = "<p>User Already Registered";
                     return;
                 }
                 else
@@ -62,9 +62,8 @@ namespace Bank_Management_System
                     add.Parameters.AddWithValue("@aadhar_card", addnum.Text.Trim());
                     add.Parameters.AddWithValue("@balance", balance.Text.Trim());
                     add.Parameters.AddWithValue("@account_type",  actype.SelectedValue);
-                    add.Parameters.AddWithValue("@password", txtPassword.Text);
+                    add.Parameters.AddWithValue("@password", EncryptedPass);
                     add.Parameters.AddWithValue("@address", address.Text);
-                    add.Parameters.AddWithValue("@account_number", 12345678);
                    
 
 

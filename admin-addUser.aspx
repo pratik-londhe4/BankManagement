@@ -140,7 +140,7 @@
                         </div>
 
                      <div class="col-sm">
-            <asp:TextBox placeholder="Addhar Card Nunmber" CssClass="input-group" runat="server" ID="addnum" ></asp:TextBox>
+            <asp:TextBox placeholder="Addhar Card Nunmber" CssClass="input-group" runat="server" ID="addnum"  ></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="addnum" Display="Dynamic" ErrorMessage="Addhar Card Number  is required" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegExp1" runat="server"    
                         ErrorMessage="Enter valid addhar card number"
@@ -205,7 +205,11 @@
                    
                   
                     </div>
-            <asp:Button Text="Add User" CssClass="btn btn-info input-group" runat="server" ID="btn_add_user" OnClick="btn_add_user_Click" ></asp:Button>
+            <asp:Button Text="Add User" CssClass="btn btn-info input-group" runat="server" ID="btn_add_user"  OnClick="btn_add_user_Click" ></asp:Button>
+            </div>
+            <asp:HiddenField ID="hfuserid" runat="server" Value="0" />
+            <div>
+                <asp:Label ID="errormsg" runat="server"></asp:Label>
             </div>
         
     </div>
@@ -222,3 +226,4 @@
     </form>
 </body>
 </html>
+ 

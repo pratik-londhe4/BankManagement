@@ -59,13 +59,22 @@ namespace Bank_Management_System
 
 
                     add.ExecuteNonQuery();
-                   // clr();
-                 //   errormsg.Visible = false;
-                  //  successmsg.Text = "Success";
+                    errmsg.Text = "<p>Amount sent</p>";
+                    errmsg.ForeColor = System.Drawing.Color.Green;
+                    clr();
+                
 
                 }
             }
 
+        }
+
+
+        void clr()
+        {
+
+
+            acnum.Text = amount.Text = "";
         }
     }
 }

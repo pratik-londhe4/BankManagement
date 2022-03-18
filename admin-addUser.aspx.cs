@@ -21,75 +21,89 @@ namespace Bank_Management_System
 
         protected void btn_add_user_Click(object sender, EventArgs e)
         {
-            string EncryptedPass = Encrypt(txtPassword.Text.Trim());
-            
 
-
-            using (SqlConnection sqlconn = new SqlConnection(con))
+            if (txtPassword.Text != conftxtPassword.Text)
             {
-                SqlCommand check = new SqlCommand("select aadhar_card from dbo.user_table where aadhar_card = @aadhar", sqlconn);
-                check.Parameters.AddWithValue("@aadhar", addnum.Text.Trim());
-                sqlconn.Open();
-                using (SqlDataReader oReader = check.ExecuteReader())
+                errormsg.Text = "Passwords don't match";
+                return;
+            }
+            else
+            {
+
+
+                string EncryptedPass = Encrypt(txtPassword.Text.Trim());
+
+
+
+                using (SqlConnection sqlconn = new SqlConnection(con))
                 {
-                    while (oReader.Read())
+                    SqlCommand check = new SqlCommand("select aadhar_card from dbo.user_table where aadhar_card = @aadhar", sqlconn);
+                    check.Parameters.AddWithValue("@aadhar", addnum.Text.Trim());
+                    sqlconn.Open();
+                    using (SqlDataReader oReader = check.ExecuteReader())
                     {
+                        while (oReader.Read())
+                        {
 
-                        cEmail = oReader["aadhar_card"].ToString();
+                            cEmail = oReader["aadhar_card"].ToString();
 
+
+                        }
 
                     }
 
+                    if (cEmail == addnum.Text.Trim())
+                    {
+                        errormsg.Text = "<p>User Already Registered";
+                        return;
+                    }
+                    else
+                    {
+
+
+
+
+
+
+                        SqlCommand add = new SqlCommand("add_user", sqlconn);
+                        add.CommandType = CommandType.StoredProcedure;
+                        add.Parameters.AddWithValue("@id", Convert.ToInt32(hfuserid.Value == "" ? "0" : hfuserid.Value));
+                        add.Parameters.AddWithValue("@name", name.Text.Trim());
+                        add.Parameters.AddWithValue("@aadhar_card", addnum.Text.Trim());
+                        add.Parameters.AddWithValue("@balance", balance.Text.Trim());
+                        add.Parameters.AddWithValue("@account_type", actype.SelectedValue);
+                        add.Parameters.AddWithValue("@password", EncryptedPass);
+                        add.Parameters.AddWithValue("@address", address.Text);
+
+
+
+
+                        add.ExecuteNonQuery();
+                         clr();
+                         errormsg.Visible = true;
+                        errormsg.Text = "Success";
+                        errormsg.ForeColor = System.Drawing.Color.Green;
+
+                    }
+
+
                 }
+            }
 
-                if (cEmail == addnum.Text.Trim())
-                {
-                    errormsg.Text = "<p>User Already Registered";
-                    return;
-                }
-                else
-                {
+             void clr()
+            {
 
 
+                name.Text = addnum.Text = balance.Text = actype.Text = address.Text = txtPassword.Text = conftxtPassword.Text = "";
+              }
 
-
-
-
-                    SqlCommand add = new SqlCommand("add_user", sqlconn);
-                    add.CommandType = CommandType.StoredProcedure;
-                    add.Parameters.AddWithValue("@id", Convert.ToInt32(hfuserid.Value == "" ? "0" : hfuserid.Value));
-                    add.Parameters.AddWithValue("@name", name.Text.Trim());
-                    add.Parameters.AddWithValue("@aadhar_card", addnum.Text.Trim());
-                    add.Parameters.AddWithValue("@balance", balance.Text.Trim());
-                    add.Parameters.AddWithValue("@account_type",  actype.SelectedValue);
-                    add.Parameters.AddWithValue("@password", EncryptedPass);
-                    add.Parameters.AddWithValue("@address", address.Text);
-                   
-
-
-
-                    add.ExecuteNonQuery();
-                   // clr();
-                   // errormsg.Visible = true;
-//errormsg.Text = "Success";
-
-                }
-
+            string Encrypt(String str)
+            {
+                byte[] b = System.Text.Encoding.ASCII.GetBytes(str);
+                string enc = Convert.ToBase64String(b);
+                return enc;
 
             }
-        }
-
-      //  void clr()
-      //  {
-      //      fname.Text = lname.Text = email.Text = mobile.Text = dob.Text = addr.Text
-       //         = city.Text = pin.Text = pass.Text = hfuserid.Value = cpass.Text = "";
-      //  }
-
-        string Encrypt(String str)
-        {
-            byte[] b = System.Text.Encoding.ASCII.GetBytes(str);
-            string enc = Convert.ToBase64String(b);
-            return enc;
 
         }
     }

@@ -140,7 +140,7 @@
               
                 <div class="row g-5">
                     <div class="col-sm">
-            <asp:TextBox placeholder="Account Number" runat="server" type="password" ID="acnum"></asp:TextBox>
+            <asp:TextBox placeholder="Account Number" runat="server"  ID="acnum"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" runat="server" ControlToValidate="acnum" Display="Dynamic" ErrorMessage="Account Number is required"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"    
                     ErrorMessage="Account Number length must 10  characters"
@@ -151,16 +151,7 @@
                     </div>
 
 
-                    <div class="col-sm">
-            <asp:TextBox placeholder="Account Number" runat="server"  ID="confacnum"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" runat="server" ControlToValidate="confacnum" Display="Dynamic" ErrorMessage="Account Number is required"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"    
-                    ErrorMessage="Account Number length must 10  characters"
-                    ControlToValidate="confacnum"
-                    ValidationExpression="^[0-9]{10,10}$" />    
-                        <br />
-                        <br />
-                    </div>
+                  
 
 
                    

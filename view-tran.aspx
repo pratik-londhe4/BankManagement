@@ -131,7 +131,8 @@
 <asp:BoundField DataField="credited_to" HeaderText="credited_to" SortExpression="credited_to"></asp:BoundField>
 </Columns>
 </asp:GridView>
-              <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bank-mgmtConnectionString %>' SelectCommand="SELECT [timestamp], [amount], [debited_from], [credited_to] FROM [transactions] WHERE ([debited_from] = @debited_from)"><SelectParameters>
+              <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bank-mgmtConnectionString %>' SelectCommand="SELECT [timestamp], [amount], [debited_from], [credited_to] FROM [transactions] WHERE (([credited_to] = @credited_to) or ([debited_from] = @debited_from))"><SelectParameters>
+<asp:SessionParameter SessionField="acc" Name="credited_to" Type="Decimal"></asp:SessionParameter>
 <asp:SessionParameter SessionField="acc" Name="debited_from" Type="Decimal"></asp:SessionParameter>
 </SelectParameters>
 </asp:SqlDataSource>
